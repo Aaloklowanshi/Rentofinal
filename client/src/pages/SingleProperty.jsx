@@ -1,9 +1,8 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { resolvePath, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 import AddressLink from './AddressLink';
 import PlaceGallery from './PlaceGallery';
-import { useResetRecoilState } from 'recoil';
 
 const SingleProperty = () => {
   const {Id} = useParams();
@@ -45,7 +44,8 @@ const SingleProperty = () => {
             <h2 className="font-semibold text-2xl">Description</h2>
             {Property.description}
           </div>
-         Contact {}<br />
+          {console.log("ye hai number" , Property.authorno)}
+         Contact {Property.authorno}<br />
           Check-out: {Property.avialability}<br />
           Max number of guests: {Property.avialability}
         </div>
