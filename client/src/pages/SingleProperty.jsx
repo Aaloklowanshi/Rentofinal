@@ -45,7 +45,7 @@ const SingleProperty = () => {
             <h2 className="font-semibold text-2xl">Description</h2>
             {Property.description}
           </div>
-         Contact {}<br />
+         Contact {Property.authorno}<br />
           Check-out: {Property.avialability}<br />
           Max number of guests: {Property.avialability}
         </div>

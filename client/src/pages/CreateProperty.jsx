@@ -82,7 +82,7 @@ const CreateProperty = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-6">
                                 <div>
                                     <label htmlFor="property-name" className="block text-sm font-medium text-gray-700">Property Name</label>
-                                    <input id="property-name" className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500" type="text" onChange={(e) => setTypeOfProperty(e.target.value)} />
+                                    <input id="property-name" className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500" type="text" placeholder='Mention size in bhk also' onChange={(e) => setTypeOfProperty(e.target.value)} />
                                 </div>
                                 <div>
                                     <label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label>
