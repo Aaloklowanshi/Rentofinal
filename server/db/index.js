@@ -49,6 +49,7 @@ const propertySchema = new mongoose.Schema({
     location: String,
     shortlink: String,
     avialability: Boolean,
+    authorno : Number,
   
     author: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     createdAt: { type: Date, default: Date.now },

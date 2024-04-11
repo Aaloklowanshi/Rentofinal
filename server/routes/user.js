@@ -7,6 +7,11 @@ const { authenticateJwt, SECRET } = require("../middleware/");
 const router = express.Router();
 
 router.post("/properties", authenticateJwt,async (req, res) => {
+  const userid = req.user.id;
+  console.log(userid);
+  const qt = await User.findById(userid);
+  console.log(qt.phoneno);
+
     try{  
     const property = new Property({
             type: req.body.type,
@@ -17,6 +22,7 @@ router.post("/properties", authenticateJwt,async (req, res) => {
             shortlink: req.body.shortlink, 
             avialability: req.body.avialability, 
             author: req.user.id,
+            authorno : qt.phoneno
     });
     await property.save();
     res.status(200).send({
@@ -43,7 +49,6 @@ router.post("/properties", authenticateJwt,async (req, res) => {
 router.get('/properties/:Id' , async(req , res)=>{
   try{
     const {Id} = req.params;
-    console.log("this is the id" , Id);
     res.json(await Property.findById(Id));
   }
   catch(err){
