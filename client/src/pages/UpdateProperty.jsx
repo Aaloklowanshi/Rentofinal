@@ -20,7 +20,7 @@ const UpdateProperty = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/user/getpostdata/${postId}`,
+        `https://rentofinal.onrender.com/user/getpostdata/${postId}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -47,7 +47,7 @@ const UpdateProperty = () => {
   const handleUpdatePost = async()=>{
 
     try{
-      const response = axios.put(`http://localhost:8000/user/posts/${postId}`,{
+      const response = axios.put(`https://rentofinal.onrender.com/user/posts/${postId}`,{
       type: type,
       description: description,
       price: price,

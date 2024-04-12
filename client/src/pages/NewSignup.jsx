@@ -21,7 +21,7 @@ export const NewSignupPage = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/auth/signup", {
+      const response = await axios.post("https://rentofinal.onrender.com/auth/signup", {
         email: formData.email,
         phoneno: formData.phone,
         password: formData.password,

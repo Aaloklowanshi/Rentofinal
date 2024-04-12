@@ -13,7 +13,7 @@
 
          const handleLogin = async () => {
             try{
-                const res = await axios.post("http://localhost:8000/auth/login", {
+                const res = await axios.post("https://rentofinal.onrender.com/auth/login", {
                     email: email,
                     password: password
                 });

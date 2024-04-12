@@ -11,7 +11,7 @@ const SingleProperty = () => {
 
   const fetchProperties = async()=>{
     try{
-      const response = await axios.get(`http://localhost:8000/user/properties/${Id}` , {
+      const response = await axios.get(`https://rentofinal.onrender.com/user/properties/${Id}` , {
             headers: {
               authorization: `Bearer ${localStorage.getItem("token")}`,
             },

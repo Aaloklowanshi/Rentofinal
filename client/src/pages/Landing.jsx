@@ -20,7 +20,7 @@ export const Landing = () => {
     
     try {
       const response = await axios.get(
-        "http://localhost:8000/user/getallposts",
+        "https://rentofinal.onrender.com/user/getallposts",
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem("token")}`,

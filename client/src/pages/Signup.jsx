@@ -71,7 +71,7 @@ export const Signup = () => {
             variant="contained"
             onClick={async() => {
 
-                const response = await axios.post("http://localhost:8000/auth/signup" , {
+                const response = await axios.post("https://rentofinal.onrender.com/auth/signup" , {
                     username : email,
                     password : password,
                     profilePhoto : profilePhoto,

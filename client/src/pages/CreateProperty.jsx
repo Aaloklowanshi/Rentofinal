@@ -41,7 +41,7 @@ const CreateProperty = () => {
 
     const handleCreateProperty = async () => {
         try {
-            const response = await axios.post("http://localhost:8000/user/properties", {
+            const response = await axios.post("https://rentofinal.onrender.com/user/properties", {
                 typeOfProperty: typeOfProperty,
                 description: description,
                 price: Price,
