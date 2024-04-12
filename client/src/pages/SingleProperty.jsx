@@ -50,7 +50,6 @@ const SingleProperty = () => {
           Availability :  Available
         </div>
         <div>
-          {/* <BookingWidget Property={Property} /> */}
         </div>
       </div>
     </div>

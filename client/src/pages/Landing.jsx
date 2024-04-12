@@ -89,7 +89,7 @@ export const Landing = () => {
       initial="hidden"
       animate="visible"
     >
-      Search for rental properties by city, neighborhood, or ZIP code.
+      Search for rental properties by city, Size or location
     </motion.p>
               </motion.div>
               <div className="mx-auto w-full max-w-sm space-y-2">
