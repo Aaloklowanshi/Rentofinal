@@ -8,6 +8,7 @@ import { v4 } from "uuid";
 import { imageDb } from "./../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import axios from 'axios';
+import TobBar from "./../components/TopBar"
 
 const CreateProperty = () => {
     const navigate = useNavigate();
@@ -40,8 +41,14 @@ const CreateProperty = () => {
     }
 
     const handleCreateProperty = async () => {
+        // Check if any of the required fields are empty
+        if (!typeOfProperty || !description || !Price || !imageLink || !location || !shortLink) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+
         try {
-            const response = await axios.post("https://rentofinal.onrender.com/user/properties", {
+            const response = await axios.post("http://localhost:8000/user/properties", {
                 typeOfProperty: typeOfProperty,
                 description: description,
                 price: Price,
@@ -74,6 +81,8 @@ const CreateProperty = () => {
     }
 
     return (
+        <>
+        <TobBar/>
         <div className="container mx-auto mt-5">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -123,6 +132,7 @@ const CreateProperty = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 

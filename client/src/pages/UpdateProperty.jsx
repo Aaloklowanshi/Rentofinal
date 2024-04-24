@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Button, TextField } from "@mui/material";
 // import { post } from "../../../server/routes/user";
 import { propertiesAtom } from "../store/atoms/properties";
 import { useRecoilState } from "recoil";
+import { useNavigate } from "react-router-dom";
+
 
 const UpdateProperty = () => {
   const { postId } = useParams();
@@ -17,10 +19,12 @@ const UpdateProperty = () => {
   const [shortlink, setShortLink] = useState("");
   const [availability, setAvailability] = useState("");
 
+  const navigate = useNavigate();
+
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        `https://rentofinal.onrender.com/user/getpostdata/${postId}`,
+        `http://localhost:8000/user/getpostdata/${postId}`,
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
@@ -47,7 +51,7 @@ const UpdateProperty = () => {
   const handleUpdatePost = async()=>{
 
     try{
-      const response = axios.put(`https://rentofinal.onrender.com/user/posts/${postId}`,{
+      const response = axios.put(`http://localhost:8000/user/posts/${postId}`,{
       type: type,
       description: description,
       price: price,
@@ -71,6 +75,8 @@ const UpdateProperty = () => {
         shortlink : shortlink
     };
     setProperties({property: updatedPost});
+    alert("property updated");
+    navigate("/landing");
     }
     catch(err){
       console.log("error updating the property" , err);

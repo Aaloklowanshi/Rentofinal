@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import TobBar from "./../TopBar"
 import "./accountsetting.css";
 
 const AccountSetting = () => {
@@ -10,7 +11,7 @@ const AccountSetting = () => {
   
   const getUser = async () => {
     try {
-      const response = await axios.get("https://rentofinal.onrender.com/auth/me", {
+      const response = await axios.get("http://localhost:8000/auth/me", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -27,10 +28,14 @@ const AccountSetting = () => {
   }, []);
 
   return (
+
+    <>
+  <TobBar />
     <Card style={{
       backgroundColor:'#28282B',
       color:'white',
       minHeight: 200,
+      
       display: 'flex'
     }}>
       {user.newuser && user.newuser.profilePhoto && (   
@@ -47,6 +52,7 @@ const AccountSetting = () => {
         <Typography textAlign={"center"} variant="subtitle1">{user.newuser && user.newuser.email}</Typography>
       </div>
     </Card>
+    </>
   );
 }
 

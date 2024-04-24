@@ -9,7 +9,7 @@ export const Post = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await axios.get("https://rentofinal.onrender.com/user/posts", {
+      const response = await axios.get("http://localhost:8000/user/posts", {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
         },

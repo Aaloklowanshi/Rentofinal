@@ -15,13 +15,23 @@ export const NewSignupPage = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+    const { id, value } = e.target;
+    // Check if the input is for the phone field
+    if (id === "phone") {
+      // Replace any non-numeric characters with an empty string
+      const phoneNumber = value.replace(/\D/g, "");
+      // Update the state only if the value is numeric or empty
+      setFormData({ ...formData, [id]: phoneNumber });
+    } else {
+      // For other fields, update the state normally
+      setFormData({ ...formData, [id]: value });
+    }
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://rentofinal.onrender.com/auth/signup", {
+      const response = await axios.post("http://localhost:8000/auth/signup", {
         email: formData.email,
         phoneno: formData.phone,
         password: formData.password,

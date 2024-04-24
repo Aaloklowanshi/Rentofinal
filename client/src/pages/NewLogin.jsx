@@ -12,7 +12,7 @@ export const NewLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://rentofinal.onrender.com/auth/login", {
+      const res = await axios.post("http://localhost:8000/auth/login", {
         email: email,
         password: password
       });

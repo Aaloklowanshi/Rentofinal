@@ -6,7 +6,7 @@ import axios from "axios";
 const Bookmark = () => {
 
   return <div>
-    Bookmarks
+    Bookmarks 
   </div>
 }
 
